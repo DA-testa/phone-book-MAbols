@@ -41,7 +41,8 @@ def process_queries(queries):
         elif cur_query.type == 'del':
             hashed=hash_func(number)
             if hashed in contacts.keys():
-                del(contacts[hashed][number])
+                if number in contacts[hashed].keys():
+                    del(contacts[hashed][number])
         
         else:
             response = 'not found'
